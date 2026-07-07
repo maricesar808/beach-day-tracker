@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beach Day Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="eyebrow">Hawaii beach weather</p>
+        <h1>Beach Day Tracker</h1>
+        <p class="intro">
+          Check current beach conditions and see if today is a good day to go.
+        </p>
+      </section>
+
+      <section class="tracker" aria-label="Beach weather tracker">
+        <div class="search-panel">
+          <label for="beach-search">Search saved beaches</label>
+          <input
+            id="beach-search"
+            type="search"
+            placeholder="Search Waikiki, Lanikai, Pipeline..."
+            autocomplete="off"
+          />
+          <div id="beach-list" class="beach-list" aria-label="Saved beaches"></div>
+        </div>
+
+        <div class="weather-panel">
+          <div class="panel-top">
+            <div>
+              <p class="eyebrow">Current conditions</p>
+              <h2 id="selected-beach">Waikiki Beach</h2>
+            </div>
+            <button id="refresh-button" type="button">Refresh</button>
+          </div>
+
+          <div id="status-message" class="status-message">Loading weather...</div>
+
+          <div id="weather-content" class="weather-content" hidden>
+            <div id="rating-card" class="rating-card">
+              <div class="rating-score">
+                <p class="rating-label">Beach rating</p>
+                <h3 id="rating-title">Loading</h3>
+              </div>
+              <div class="rating-copy">
+                <p id="rating-message"></p>
+                <ul id="rating-reasons" class="rating-reasons"></ul>
+              </div>
+            </div>
+
+            <div class="metrics-grid">
+              <article class="metric-card">
+                <span>Temperature</span>
+                <strong id="temperature">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Feels like</span>
+                <strong id="feels-like">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Rain chance</span>
+                <strong id="rain-chance">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Wind</span>
+                <strong id="wind-speed">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>UV index</span>
+                <strong id="uv-index">--</strong>
+              </article>
+            </div>
+
+            <div id="uv-warning" class="uv-warning" hidden>
+              High UV today. Pack sunscreen and find shade when you can.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
