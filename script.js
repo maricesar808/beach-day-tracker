@@ -20,25 +20,41 @@ const beaches = [
     longitude: -157.7736,
   },
   {
+    name: "Kaneohe Bay",
+    latitude: 21.4628,
+    longitude: -157.8103,
+  },
+  {
     name: "Pipeline",
-    latitude: 21.6654,
-    longitude: -158.0522,
+    latitude: 21.664,
+    longitude: -158.054,
   },
   {
     name: "Lanikai Beach",
-    latitude: 21.3931,
-    longitude: -157.7146,
+    latitude: 21.3922,
+    longitude: -157.715,
   },
   {
     name: "Makapuu Beach",
-    latitude: 21.3103,
-    longitude: -157.6616,
+    latitude: 21.3097,
+    longitude: -157.6573,
+  },
+  {
+    name: "Sandy Beach",
+    latitude: 21.2857,
+    longitude: -157.6729,
+  },
+  {
+    name: "Sunset Beach",
+    latitude: 21.6747,
+    longitude: -158.0394,
   },
 ];
 
 const searchInput = document.querySelector("#beach-search");
 const beachList = document.querySelector("#beach-list");
 const selectedBeach = document.querySelector("#selected-beach");
+const selectedLocation = document.querySelector("#selected-location");
 const refreshButton = document.querySelector("#refresh-button");
 const statusMessage = document.querySelector("#status-message");
 const weatherContent = document.querySelector("#weather-content");
@@ -122,7 +138,7 @@ function getRating(weather) {
   if (reasons.length > 0) {
     return {
       title: "Not ideal",
-      message: "Maybe wait for better weather.",
+      message: "Maybe save the beach bag for a better window.",
       reasons,
       className: "not-ideal",
     };
@@ -131,15 +147,20 @@ function getRating(weather) {
   if (weather.temperature < 78 || weather.rainChance > 20 || weather.windSpeed > 15) {
     return {
       title: "Okay",
-      message: "Still possible, but check the details before you go.",
-      reasons: ["conditions are close, but not perfect"],
+      message: "Could still be worth it, but check the details before you go.",
+      reasons: ["conditions are not perfect"],
       className: "okay",
     };
   }
 
+  const message =
+    weather.uvIndex > 3
+      ? "Looks like a good day to pack sunscreen and head out."
+      : "Looks like a good day to head out.";
+
   return {
     title: "Great",
-    message: "Looks like a strong beach day. Pack sunscreen.",
+    message,
     reasons: [],
     className: "great",
   };
@@ -164,6 +185,7 @@ function showWeather(data) {
   const rating = getRating(weather);
 
   selectedBeach.textContent = currentBeach.name;
+  selectedLocation.textContent = `${currentBeach.latitude}, ${currentBeach.longitude}`;
   temperature.textContent = `${Math.round(weather.temperature)}F`;
   feelsLike.textContent = `${Math.round(weather.apparentTemperature)}F`;
   rainChance.textContent = `${weather.rainChance}%`;
@@ -188,8 +210,9 @@ function showWeather(data) {
 
 async function fetchWeather() {
   selectedBeach.textContent = currentBeach.name;
+  selectedLocation.textContent = `${currentBeach.latitude}, ${currentBeach.longitude}`;
   weatherContent.hidden = true;
-  showStatus("Loading weather...");
+  showStatus(`Checking ${currentBeach.name}...`);
 
   const params = new URLSearchParams({
     latitude: currentBeach.latitude,
