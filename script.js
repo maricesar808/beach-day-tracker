@@ -59,11 +59,6 @@ function renderBeachList() {
   const searchTerm = searchInput.value.trim().toLowerCase();
 
   beachList.innerHTML = "";
-  beachList.hidden = searchTerm === "";
-
-  if (searchTerm === "") {
-    return;
-  }
 
   const filteredBeaches = beaches.filter((beach) =>
     beach.name.toLowerCase().includes(searchTerm)

@@ -4,22 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beach Day Tracker</title>
-    <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app-shell">
       <section class="hero">
-        <p class="eyebrow">Hawaii beach weather</p>
-        <h1>Beach Day Tracker</h1>
-        <p class="intro">
-          Check current beach conditions and see if today is a good day to go.
-        </p>
+        <div class="hero-copy">
+          <p class="eyebrow">Oahu beach weather</p>
+          <h1>Beach Day Tracker</h1>
+          <p class="intro">
+            A quick way to compare temperature, wind, rain, and UV before heading
+            out.
+          </p>
+        </div>
       </section>
 
       <section class="tracker" aria-label="Beach weather tracker">
         <div class="search-panel">
-          <label for="beach-search">Search saved beaches</label>
+          <div class="panel-heading">
+            <p class="eyebrow">Saved spots</p>
+            <h2>Choose a beach</h2>
+          </div>
+          <label for="beach-search">Search beaches</label>
           <input
             id="beach-search"
             type="search"
