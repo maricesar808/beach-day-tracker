@@ -70,15 +70,16 @@ input {
 .hero {
   position: relative;
   display: grid;
-  align-items: end;
+  align-items: start;
   min-height: 560px;
   overflow: hidden;
   padding: clamp(28px, 5vw, 56px);
   color: #fffdf8;
   background:
-    linear-gradient(180deg, rgba(18, 57, 63, 0.08), rgba(18, 57, 63, 0.72)),
-    url("images/DSCF0010.jpg");
-  background-position: center 58%;
+    linear-gradient(90deg, rgba(18, 57, 63, 0.68), rgba(18, 57, 63, 0.22) 44%, rgba(18, 57, 63, 0.04)),
+    linear-gradient(180deg, rgba(18, 57, 63, 0.08), rgba(18, 57, 63, 0.32)),
+    url("images/hero-island-hands.png");
+  background-position: center 48%;
   background-size: cover;
 }
 
@@ -93,20 +94,12 @@ input {
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 560px;
+  text-shadow: 0 2px 18px rgba(17, 63, 71, 0.28);
 }
 
-.hero-caption {
-  position: absolute;
-  right: clamp(20px, 4vw, 44px);
-  bottom: clamp(20px, 4vw, 40px);
-  z-index: 1;
-  max-width: 210px;
-  margin: 0;
-  border-left: 1px solid rgba(255, 253, 248, 0.54);
-  padding-left: 14px;
-  font-size: 0.86rem;
-  color: rgba(255, 253, 248, 0.86);
+.hero .eyebrow {
+  color: #fffdf8;
 }
 
 .eyebrow {
@@ -487,13 +480,6 @@ input:focus-visible {
 
   .hero {
     min-height: 430px;
-  }
-
-  .hero-caption {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin-top: 28px;
   }
 
   .tracker {
