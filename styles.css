@@ -47,7 +47,7 @@ input {
 .nav-bar {
   width: min(1160px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 18px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--line);
   text-align: center;
 }
@@ -64,23 +64,24 @@ input {
 .app-shell {
   width: min(1160px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 0 56px;
+  padding: 34px 0 64px;
 }
 
 .hero {
   position: relative;
   display: grid;
-  align-items: start;
-  min-height: 560px;
+  align-items: end;
+  min-height: 620px;
   overflow: hidden;
-  padding: clamp(28px, 5vw, 56px);
+  padding: clamp(34px, 6vw, 72px);
   color: #fffdf8;
   background:
-    linear-gradient(90deg, rgba(18, 57, 63, 0.68), rgba(18, 57, 63, 0.22) 44%, rgba(18, 57, 63, 0.04)),
-    linear-gradient(180deg, rgba(18, 57, 63, 0.08), rgba(18, 57, 63, 0.32)),
+    linear-gradient(90deg, rgba(18, 57, 63, 0.76), rgba(18, 57, 63, 0.28) 38%, rgba(18, 57, 63, 0.02) 66%),
+    linear-gradient(180deg, rgba(18, 57, 63, 0.02), rgba(18, 57, 63, 0.24)),
     url("images/hero-island-hands.png");
-  background-position: center 48%;
-  background-size: cover;
+  background-position: center, center, left -10% center;
+  background-repeat: no-repeat;
+  background-size: auto, auto, 112% auto;
 }
 
 .hero::after {
@@ -94,7 +95,7 @@ input {
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 560px;
+  max-width: 450px;
   text-shadow: 0 2px 18px rgba(17, 63, 71, 0.28);
 }
 
@@ -119,11 +120,11 @@ p {
 }
 
 h1 {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.4rem, 8vw, 7rem);
+  font-size: clamp(3rem, 6.4vw, 5.7rem);
   font-weight: 400;
-  line-height: 0.92;
+  line-height: 0.96;
   letter-spacing: 0;
 }
 
@@ -136,10 +137,10 @@ h1 {
 
 .tracker {
   display: grid;
-  grid-template-columns: 315px minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(280px, 330px) minmax(0, 1fr);
+  gap: 36px;
   align-items: start;
-  margin-top: 34px;
+  margin-top: 44px;
 }
 
 .search-panel,
@@ -475,15 +476,19 @@ input:focus-visible {
 @media (max-width: 850px) {
   .app-shell {
     width: min(100% - 22px, 680px);
-    padding: 18px 0 38px;
+    padding: 24px 0 44px;
   }
 
   .hero {
-    min-height: 430px;
+    min-height: 500px;
+    background-position: center, center, left -60px center;
+    background-size: auto, auto, auto 100%;
   }
 
   .tracker {
     grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
   }
 
   .panel-top {
@@ -521,8 +526,10 @@ input:focus-visible {
   }
 
   .hero {
-    min-height: 360px;
-    padding: 24px;
+    min-height: 430px;
+    padding: 28px 24px;
+    background-position: center, center, left -92px center;
+    background-size: auto, auto, auto 100%;
   }
 
   .panel-top,
