@@ -12,3 +12,4 @@ This app uses the Open-Meteo Forecast API to get current weather.
 [Beach Day Tracker live site](https://maricesar808.github.io/beach-day-tracker/)
 
 ## Screenshot
+![Beach Day Tracker screenshot](images/Screenshot%202026-07-09%20at%208.20.45%E2%80%AFPM.png)
